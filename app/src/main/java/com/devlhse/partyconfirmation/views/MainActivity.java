@@ -26,7 +26,38 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         this.mViewHolder.buttonConfirm = (Button) findViewById(R.id.button_confirm);
         this.mViewHolder.buttonConfirm.setOnClickListener(this);
         this.mSecurityPreferences = new SecurityPreferences(this);
+    }
+
+    /*métodos do ciclo de vida de uma acitivity são callbacks
+     * quando um termina outro é chamado imediatamente*/
+    @Override
+    protected void onStart() {
+        super.onStart();
+    }
+
+    /* este método sempre é chamado quando a activity
+    é colocada visivelmente na tela
+     */
+    @Override
+    protected void onResume() {
+        super.onResume();
         this.verifyPresence();
+    }
+
+    /*Não deve ser utilizado para persistencia de dados ou chamadas a API*/
+    @Override
+    protected void onPause() {
+        super.onPause();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
     }
 
     @Override
