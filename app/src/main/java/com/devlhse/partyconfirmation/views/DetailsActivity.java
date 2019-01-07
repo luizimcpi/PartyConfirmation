@@ -22,6 +22,19 @@ public class DetailsActivity extends AppCompatActivity implements View.OnClickLi
         this.mSecurityPreferences = new SecurityPreferences(this);
         this.mViewHolder.checkParticipation = (CheckBox) findViewById(R.id.check_participation);
         this.mViewHolder.checkParticipation.setOnClickListener(this);
+        this.loadDataFromActivity();
+    }
+
+    private void loadDataFromActivity() {
+        Bundle extras = getIntent().getExtras();
+        if(extras != null){
+            String presence = extras.getString(PartyConstants.PRESENCE_KEY);
+            if(PartyConstants.CONFIRMED.equals(presence)){
+                this.mViewHolder.checkParticipation.setChecked(true);
+            }else{
+                this.mViewHolder.checkParticipation.setChecked(false);
+            }
+        }
     }
 
     @Override
